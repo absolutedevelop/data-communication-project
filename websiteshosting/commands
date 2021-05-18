@@ -1,0 +1,13 @@
+
+
+reinstall apache 
+sudo apt-get -o DPkg::Options::="--force-confmiss" --reinstall install apache2
+
+start apache
+sudo service apache2 restart
+
+
+
+add permissions of a bash file 
+sudo chmod 774 directories.sh
+
