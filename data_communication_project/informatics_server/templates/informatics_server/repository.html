@@ -1,0 +1,37 @@
+{% extends "informatics_server/base.html" %}
+
+{% block content %}	
+	
+
+	<div class="container">
+		<br>
+		<br>
+		<form method = "POST" enctype="multipart/form-data">
+			{% csrf_token  %}
+			<div class="white-text">
+				{{form}}
+			</div>
+			<button class="btn waves-effect waves-light" type="submit" name="action">Upload file
+			</button>
+		</form>
+
+		<br>
+		
+		<ul class="collection with-header">
+	        <li class="red-text collection-header"><h4>Your Team Repository</h4></li>
+	        {% if repo_uri %}
+	        	<li class="blue-text collection-item"><div>Repository<a href="{{repo_uri}}" class="secondary-content"><i class="material-icons">download</i></a></div></li>
+
+	        	<li class="grey-text text-darken-1 collection-item"><div>Repository - Backup<a href="{{backup_uri}}" class="secondary-content"><i class="material-icons">download</i></a></div></li>
+
+	        {% else %}
+	        	<span class ="blue-text">No repository uploaded by your team</span>
+	        {% endif %}
+	        
+	        
+	      </ul>
+		
+
+	</div>
+
+{%endblock content%}
